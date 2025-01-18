@@ -6,7 +6,7 @@ const Register=async(req,res)=>{
     try {
           const {userName,email,password}=req.body
           if (!userName || !email || !password) {
-            return res.status(303).json({success:true,message:" All faild are required"})
+            return res.status(400).json({success:true,message:" All faild are required"})
           }
           const ExiteingUser= await UserModel.findOne({email})
           if (ExiteingUser) {
