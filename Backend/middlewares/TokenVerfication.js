@@ -30,4 +30,4 @@ const TokenVerification = async (req, res, next) => {
   }
 };
 
-export { TokenVerification };
+export { TokenVerification }
