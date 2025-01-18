@@ -68,18 +68,15 @@ const Delete=async(req,res)=>{
         res.status(500).json({success:false,message:"Internal Server Error",})
     }
 }
-const GetNotes=async(req,res)=>{
+const GetNotes = async (req, res) => {
     try {
-        const userId=req.userId
-        
-        const Notes=await NotesModel.find({userId})
-
-
-        res.status(200).json({success:true,Notes})
-        console.log(error)
-        res.status(500).json({success:false,message:"Internal Server Error",})
+        const userId = req.userId;
+        const Notes = await NotesModel.find({ userId });
+        res.status(200).json({ success: true, Notes });
     } catch (error) {
-        
+        console.log(error);  // Log the error
+        res.status(500).json({ success: false, message: "Internal Server Error" });
     }
-}
+};
+
 export {CreateNotes,UpdateNotes,Delete,GetNotes}
