@@ -14,7 +14,7 @@ const app = express();
 DbCon();
 
 // CORS configuration - update to allow the deployed frontend URL
-const cors = require('cors');
+
 app.use(cors({
     credentials: true,
     origin: [
