@@ -17,9 +17,11 @@ DbCon();
 app.use(cors({
     credentials: true,
     origin: [
-        'http://localhost:5173',  // For local development
-        'https://quicknotes-1-xzvk.onrender.com'  // Deployed frontend URL
-    ]
+        'http://localhost:5173',
+        'https://quicknotes-1-xzvk.onrender.com'
+    ],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Add required methods
+    allowedHeaders: ['Content-Type', 'Authorization']  // Add custom headers if needed
 }));
 
 app.use(cookieParser());
