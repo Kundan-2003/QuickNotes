@@ -14,14 +14,14 @@ const app = express();
 DbCon();
 
 // CORS configuration - update to allow the deployed frontend URL
+const cors = require('cors');
 app.use(cors({
     credentials: true,
     origin: [
-        'http://localhost:5173',
-        'https://quicknotes-1-xzvk.onrender.com'
+        process.env.REACT_APP_FRONTEND_URL,  // Frontend URL from .env
     ],
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Add required methods
-    allowedHeaders: ['Content-Type', 'Authorization']  // Add custom headers if needed
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 app.use(cookieParser());
